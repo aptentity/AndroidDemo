@@ -3,4 +3,10 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <plurals name="active_notification_count_nonzero">
+        <item quantity="one">%d active notification</item>
+        <item quantity="other">%d active notifications</item>
+    </plurals>
+    <string name="active_notification_count_zero">No active notification</string>
+    <string name="title_activity_notification_listener_test">NotificationListenerTestActivity</string>
 </resources>
