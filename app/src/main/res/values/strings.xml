@@ -9,4 +9,5 @@
     </plurals>
     <string name="active_notification_count_zero">No active notification</string>
     <string name="title_activity_notification_listener_test">NotificationListenerTestActivity</string>
+    <string name="title_activity_aes_test">AesTestActivity</string>
 </resources>
