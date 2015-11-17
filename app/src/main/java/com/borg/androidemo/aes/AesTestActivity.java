@@ -5,8 +5,7 @@ import android.os.Bundle;
 
 import com.borg.androidemo.R;
 import com.borg.androidemo.common.log.LogHelper;
-import com.borg.androidemo.common.utils.AESUtils;
-
+import com.borg.androidemo.common.utils.AESCipher;
 public class AesTestActivity extends Activity {
 
     @Override
@@ -19,15 +18,22 @@ public class AesTestActivity extends Activity {
         LogHelper.d("src="+src);
         LogHelper.d("AESEncrypt="+text);
         LogHelper.d("AESDecrypt="+text1);
+
     }
 
     private String key = "a2c7d449f84e013e";
 
     private String AESEncrypt(String src){
-        return AESUtils.encrypt(key,src);
+        try{
+            return AESCipher.encrypt(key,src);
+        }catch (Exception e){return "";}
     }
 
     private String AESDecrypt(String src){
-        return  AESUtils.decrypt(key,src);
+        try{
+            return  AESCipher.decrypt(key,src);
+        }catch (Exception e){
+            return "";
+        }
     }
 }
