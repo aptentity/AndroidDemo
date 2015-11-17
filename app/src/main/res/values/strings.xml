@@ -12,4 +12,5 @@
     <string name="title_activity_aes_test">AesTestActivity</string>
     <string name="title_activity_fastjson_test">FastjsonTestActivity</string>
     <string name="title_activity_handler_thread_test">HandlerThreadTestActivity</string>
+    <string name="title_activity_intent_service_test">IntentServiceTestActivity</string>
 </resources>
