@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.borg.androidemo" >
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -76,6 +78,15 @@
         <activity
             android:name=".activity.OkHttpTestActivity"
             android:label="@string/title_activity_ok_http_test" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.AsyncTaskTestActivity"
+            android:label="@string/title_activity_async_task_test" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
