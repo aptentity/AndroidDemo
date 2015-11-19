@@ -1,7 +1,7 @@
 package com.borg.androidemo.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.borg.androidemo.R;
 import com.borg.androidemo.common.log.LogHelper;
@@ -15,7 +15,7 @@ import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 
-public class OkHttpTestActivity extends AppCompatActivity {
+public class OkHttpTestActivity extends Activity {
     private final OkHttpClient client = new OkHttpClient();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
