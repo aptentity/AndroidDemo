@@ -8,7 +8,7 @@ import com.borg.androidemo.R;
 import com.borg.androidemo.common.log.LogHelper;
 
 import de.greenrobot.event.EventBus;
-
+//https://github.com/greenrobot/EventBus
 public class EventBusTestActivity extends AppCompatActivity {
 
     @Override
