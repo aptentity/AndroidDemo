@@ -15,7 +15,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         <activity
             android:name=".activity.FirstActivity"
             android:label="@string/app_name" >
@@ -102,6 +102,7 @@
         </activity>
         <activity
             android:name=".ble.DeviceScanActivity"
+            android:theme="@style/AppTheme"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -109,7 +110,8 @@
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".ble.DeviceControlActivity" />
+        <activity android:name=".ble.DeviceControlActivity"
+            android:theme="@style/AppTheme"/>
 
         <service
             android:name=".ble.BluetoothLeService"
@@ -117,6 +119,7 @@
 
         <activity
             android:name=".ble2.ScanActivity"
+            android:theme="@style/AppTheme"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -124,7 +127,8 @@
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".ble2.DeviceActivity" />
+        <activity android:name=".ble2.DeviceActivity"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".activity.VolleyTestActivity"
             android:label="@string/title_activity_volley_test" >
