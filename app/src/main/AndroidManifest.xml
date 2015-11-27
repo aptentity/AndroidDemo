@@ -26,6 +26,24 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.FragmentTestActivity"
+            android:label="@string/title_activity_fragment_test" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.HandlerTestActivity"
+            android:label="@string/title_activity_handler_test" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".notification.NotificationListenerTestActivity"
             android:label="@string/title_activity_notification_listener_test" >
             <intent-filter>
@@ -158,6 +176,7 @@
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

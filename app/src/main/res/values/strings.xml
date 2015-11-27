@@ -41,4 +41,11 @@
     <string name="title_activity_volley_test">VolleyTestActivity</string>
     <string name="title_activity_event_bus_test">EventBusTestActivity</string>
     <string name="title_activity_smart_image_test">SmartImageTestActivity</string>
+    <string name="title_activity_handler_test">HandlerTestActivity</string>
+    <string name="title_activity_fragment_test">FragmentTestActivity</string>
+    <array name="countries_array">
+        <item>搞笑</item>
+        <item>经典</item>
+        <item>动作</item>
+    </array>
 </resources>
