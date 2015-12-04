@@ -105,6 +105,7 @@ abstract public class DeviceConnection{
      * @param callback        发送结果通知回调接口
      */
     abstract public void sendData(final JSONObject data, final int category, final SendDataCallback callback);
+    abstract public void sendData(final String data, final int category, final SendDataCallback callback);
 }
 
 

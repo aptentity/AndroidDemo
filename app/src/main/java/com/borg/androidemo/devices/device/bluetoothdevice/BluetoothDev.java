@@ -6,12 +6,10 @@ import com.borg.androidemo.common.utils.CKLOG;
 import com.borg.androidemo.devices.api.AccessType;
 import com.borg.androidemo.devices.api.DeviceConnection;
 import com.borg.androidemo.devices.api.callback.AsyncDataTask;
-import com.borg.androidemo.devices.api.callback.AuthCallback;
 import com.borg.androidemo.devices.api.callback.SendDataCallback;
 import com.borg.androidemo.devices.connection.bluetooth.AliBluetoothManager;
 import com.borg.androidemo.devices.connection.bluetooth.ble.callback.IAliBLESendStateCallback;
 import com.borg.androidemo.devices.impl.DeviceCommand;
-import com.borg.androidemo.devices.init.CloudKitProfile;
 import com.borg.androidemo.devices.protocol.JsonProtocolConstant;
 import com.borg.androidemo.devices.protocol.ResponseCode;
 
@@ -97,9 +95,9 @@ public abstract class BluetoothDev {
 
         if (mAccessType == AccessType.BLE_DEVICE_Direct ||mAccessType == AccessType.BT_DEVICE_Direct) {
             notifyDeviceState(DeviceConnection.DEVICE_WAITFORAUTH);
-
+            notifyDeviceState(DeviceConnection.DEVICE_CONNECTED);
             try {
-                DeviceCommand.authBTDevice(AUTH_NOT_ESCAPE, new AuthCallback() {
+                /*DeviceCommand.authBTDevice(AUTH_NOT_ESCAPE, new AuthCallback() {
                             @Override
                             public void onAuthResult(final int responseCode) {
 
@@ -114,7 +112,7 @@ public abstract class BluetoothDev {
                             }
                         }, CloudKitProfile.instance().getContext(),
                         LATENCY_TIME,
-                        this);
+                        this);*/
 
             } catch (Exception e) {
                 e.printStackTrace();

@@ -142,6 +142,10 @@ public class BluetoothDeviceConnection extends  DeviceConnectionImplBase impleme
         bledevice.sendData(data.toString(), categoryCode, callback);
     }
 
+    public void sendData(final String data, final int categoryCode, final SendDataCallback callback) {
+        bledevice.sendData(data, categoryCode, callback);
+    }
+
     /**
      * 设备连接状态变化通知。
      *

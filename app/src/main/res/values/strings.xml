@@ -64,4 +64,5 @@
         <item>Timer Task</item>
         <item>Cached Task:Reduce Pressure of Server</item>
     </string-array>
+    <string name="title_activity_ble_test">BleTestActivity</string>
 </resources>
