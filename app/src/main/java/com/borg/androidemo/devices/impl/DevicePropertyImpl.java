@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created by wuzonglu on 15/10/20.
+ * Created by   on 15/10/20.
  */
 public class DevicePropertyImpl implements DeviceProperty {
     private String type;// "watch"

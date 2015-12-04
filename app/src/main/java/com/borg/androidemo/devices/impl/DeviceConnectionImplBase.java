@@ -3,7 +3,7 @@ package com.borg.androidemo.devices.impl;
 import com.borg.androidemo.devices.api.DeviceConnection;
 
 /**
- * Created by wuzonglu on 15/10/29.
+ * Created by   on 15/10/29.
  */
 abstract public class DeviceConnectionImplBase extends DeviceConnection {
 

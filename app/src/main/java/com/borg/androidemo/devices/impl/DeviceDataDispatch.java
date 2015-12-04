@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 
 /**
- * Created by wuzonglu on 15/10/22.
+ * Created by   on 15/10/22.
  */
 public class DeviceDataDispatch {
     private static final java.lang.String TAG = DeviceDataDispatch.class.getSimpleName();

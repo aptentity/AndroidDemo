@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wuzonglu on 15/10/10.
+ * Created by   on 15/10/10.
  */
 public class DeviceManagerImpl extends DeviceManager {
     private static final String TAG = DeviceManagerImpl.class.getSimpleName();

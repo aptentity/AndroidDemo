@@ -17,7 +17,7 @@ import com.borg.androidemo.devices.utils.SharedPreferencesUtil;
 import org.json.JSONObject;
 
 /**
- * Created by wuzonglu on 15/10/10.
+ * Created by   on 15/10/10.
  */
 public class BluetoothDeviceConnection extends  DeviceConnectionImplBase implements BluetoothDeviceListener {
     private static final String TAG = BluetoothDeviceConnection.class.getSimpleName();

@@ -4,7 +4,7 @@ import com.borg.androidemo.devices.api.callback.BindingListener;
 
 /**手机和设备的绑定接口类，通过
  * Device.getDeviceBinder获取。
- * Created by wuzonglu on 15/10/20.
+ * Created by   on 15/10/20.
  */
 public interface DeviceBinder {
     /**

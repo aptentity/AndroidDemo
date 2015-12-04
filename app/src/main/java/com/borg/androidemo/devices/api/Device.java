@@ -5,7 +5,7 @@ import com.borg.androidemo.devices.device.DeviceInfo;
 
 /**本接口用来管理一台设备，
  * 通过DeviceManager.addDevice创建。
- * Created by wuzonglu on 15/10/20.
+ * Created by   on 15/10/20.
  */
 abstract public class Device {
     /**返回设备地址

@@ -1,7 +1,7 @@
 package com.borg.androidemo.devices.api;
 
 /**
- * Created by wuzonglu on 15/11/5.
+ * Created by   on 15/11/5.
  */
 public enum BindType {
     /**

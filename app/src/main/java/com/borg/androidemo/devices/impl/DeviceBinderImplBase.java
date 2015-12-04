@@ -19,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by wuzonglu on 15/10/21.
+ * Created by   on 15/10/21.
  */
 abstract public class DeviceBinderImplBase implements DeviceBinder {
     private static final String TAG = DeviceBinderImplBase.class.getSimpleName();

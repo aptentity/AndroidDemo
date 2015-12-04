@@ -1,7 +1,7 @@
 package com.borg.androidemo.devices.device.bluetoothdevice;
 
 /**
- * Created by wuzonglu on 15/10/21.
+ * Created by   on 15/10/21.
  */
 public interface BluetoothDeviceListener {
 
