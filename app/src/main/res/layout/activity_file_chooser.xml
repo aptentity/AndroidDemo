@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/lv_files"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:cacheColorHint="#ffff"
+            android:divider="#000"
+            android:dividerHeight="1px"
+            android:fastScrollEnabled="true" >
+        </ListView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#5000"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="7dp" >
+
+            <Button
+                android:id="@+id/btn_cancel"
+                style="@style/test_button"
+                android:layout_marginTop="0dp"
+                android:minWidth="100dp"
+                android:text="@android:string/cancel" />
+
+            <Button
+                android:id="@+id/btn_ok"
+                style="@style/test_button"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="0dp"
+                android:minWidth="100dp"
+                android:text="@android:string/ok" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/lyt_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#a000"
+            android:padding="10dp"
+            android:text="@string/empty_folder"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+</FrameLayout>

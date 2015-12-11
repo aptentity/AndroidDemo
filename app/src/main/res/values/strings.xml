@@ -43,6 +43,7 @@
     <string name="title_activity_smart_image_test">SmartImageTestActivity</string>
     <string name="title_activity_handler_test">HandlerTestActivity</string>
     <string name="title_activity_fragment_test">FragmentTestActivity</string>
+    <string name="empty_folder">空目录</string>
     <array name="countries_array">
         <item>搞笑</item>
         <item>经典</item>

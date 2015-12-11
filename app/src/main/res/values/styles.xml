@@ -4,5 +4,17 @@
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
         <!-- Customize your theme here. -->
     </style>
-
+    <style name="test_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:minWidth">200dp</item>
+    </style>
+    <style name="test_button_tip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:minWidth">200dp</item>
+    </style>
 </resources>
