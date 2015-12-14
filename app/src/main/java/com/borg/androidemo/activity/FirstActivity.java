@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.borg.androidemo.common.log.LogHelper;
+import com.borg.mvp.utils.CommonUtil;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,9 +24,12 @@ public class FirstActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         setListAdapter(new SimpleAdapter(this, getData(),
-                android.R.layout.simple_list_item_1, new String[] { "title" },
-                new int[] { android.R.id.text1 }));
+                android.R.layout.simple_list_item_1, new String[]{"title"},
+                new int[]{android.R.id.text1}));
         getListView().setTextFilterEnabled(true);
+
+        LogHelper.d("13810306806=" + CommonUtil.isMobileNumber("13810306806"));
+        LogHelper.d("1381030680="+ CommonUtil.isMobileNumber("1381030680"));
     }
 
     final String Category = "aptentity.intent.category.APT_CODE";
