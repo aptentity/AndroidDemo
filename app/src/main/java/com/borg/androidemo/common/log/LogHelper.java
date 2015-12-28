@@ -10,4 +10,7 @@ public class LogHelper {
     public static void d(String text){
         Log.d(tag,text);
     }
+    public static void d(String tag,String className,String text){
+        Log.d(tag,className+":"+text);
+    }
 }
