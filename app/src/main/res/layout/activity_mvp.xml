@@ -17,5 +17,18 @@
         android:layout_height="wrap_content"
         android:text="select date"
         android:id="@+id/btn_select_date" />
+    <com.borg.mvp.view.widget.ClearEditText
+        android:id="@+id/edit_user"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="15.0dip"
+        android:background="@null"
+        android:hint="账号/邮箱/手机号码"
+        android:inputType="textPersonName"
+        android:maxLength="30"
+        android:paddingLeft="10.0dip"
+        android:singleLine="true"
+        android:textSize="16.0sp" />
 </LinearLayout>
 

@@ -85,4 +85,7 @@ public class MainActivity extends Activity implements ISplashView,View.OnClickLi
 				break;
 		}
 	}
+
+
+
 }
