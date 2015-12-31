@@ -30,5 +30,10 @@
         android:paddingLeft="10.0dip"
         android:singleLine="true"
         android:textSize="16.0sp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView" />
 </LinearLayout>
 

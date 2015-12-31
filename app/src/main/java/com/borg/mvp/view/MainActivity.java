@@ -3,16 +3,22 @@ package com.borg.mvp.view;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.borg.androidemo.R;
 import com.borg.mvp.presenter.SplashPresenter;
+import com.borg.mvp.utils.QRCodeUtils;
 import com.borg.mvp.utils.ToastUtil;
 import com.borg.mvp.view.widget.GenderSelectDlg;
+import com.borg.mvp.view.widget.WaitDlg;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -21,6 +27,8 @@ public class MainActivity extends Activity implements ISplashView,View.OnClickLi
 
 	SplashPresenter presenter;
 	private ProgressDialog progressBar;
+	private WaitDlg waitDlg;
+	private ImageView imageview;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,6 +37,13 @@ public class MainActivity extends Activity implements ISplashView,View.OnClickLi
 		presenter = new SplashPresenter(this);
 		findViewById(R.id.btn_select_date).setOnClickListener(this);
 		findViewById(R.id.btn_select_gender).setOnClickListener(this);
+
+		imageview = (ImageView)findViewById(R.id.imageView);
+
+		File file = new File(this.getApplicationContext().getFilesDir(), "qr.jpg");
+		QRCodeUtils.createQRImage("hahaha", 300, 300, null, file.getPath());
+		Bitmap bMap = BitmapFactory.decodeFile(file.getPath());
+		imageview.setImageBitmap(bMap);
 	}
 
 	@Override
@@ -51,6 +66,8 @@ public class MainActivity extends Activity implements ISplashView,View.OnClickLi
 	@Override
 	public void hideProcessBar() {
 		progressBar.hide();
+		waitDlg = new WaitDlg(this);
+		waitDlg.show("haha");
 	}
 
 	@Override

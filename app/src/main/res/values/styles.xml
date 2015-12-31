@@ -17,4 +17,33 @@
         <item name="android:padding">5dp</item>
         <item name="android:minWidth">200dp</item>
     </style>
+
+    <style name="theme.customer_progress_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:alertDialogStyle">@style/customer_progress_dialog</item>
+        <item name="android:progressBarStyleSmall">@style/customer_progress_dialog</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:paddingLeft">10dip</item>  //图片与左边距的距离
+        <item name="android:paddingRight">10dip</item> //message与右边距的距离
+        <item name="android:textSize">20sp</item>      //message字体的大小
+        <item name="android:textColor">@android:color/white</item>  //message字体的颜色
+    </style>
+
+    <style name="customer_progress_dialog" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateDuration">2000</item>
+    </style>
+
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

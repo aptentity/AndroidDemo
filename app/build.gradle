@@ -34,4 +34,5 @@ dependencies {
     compile files('src/main/libs/okio-1.6.0.jar')
     compile files('src/main/libs/eventbus.jar')
     compile files('src/main/libs/lite-async-1.0.0.jar')
+    compile files('src/main/libs/core-3.2.1.jar')
 }
