@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.alibaba.fastjson.JSON;
 import com.borg.androidemo.R;
 import com.borg.androidemo.bean.UserInfo;
-import com.borg.androidemo.common.log.LogHelper;
+import com.borg.mvp.utils.LogHelper;
 
 public class FastjsonTestActivity extends AppCompatActivity {
 

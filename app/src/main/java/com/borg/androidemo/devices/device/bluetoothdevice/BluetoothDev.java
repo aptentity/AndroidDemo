@@ -131,8 +131,13 @@ public abstract class BluetoothDev {
     {
         IAliBLESendStateCallback mRemoteBLENotificationCallback = getiAliBLENotificationCallback(callback);
         try {
-            JSONObject notification = generateNotification(categoryCode, new JSONObject(data), callback);
+            //feilong
+            //JSONObject notification = generateNotification(categoryCode, new JSONObject(data), callback);
+            //end
+            JSONObject notification = generateNotification(categoryCode, data, callback);
             sendNotificationMessageToBLEDevice(this, notification, mRemoteBLENotificationCallback);
+            JSONObject notification1 = new JSONObject();
+            notification1.put("aa","b");
         }catch(JSONException e){
             mRemoteBLENotificationCallback.onSendMessageFailed(getAddress(), data.toString(), IAliBLESendStateCallback.FAIL_CODE_JSON_EXCEPTION);
         } catch (Exception e) {
@@ -207,6 +212,19 @@ public abstract class BluetoothDev {
      * @return
      */
     protected JSONObject generateNotification(final int catigory, final JSONObject content, SendDataCallback callback) {
+        final JSONObject json = new JSONObject();
+        try {
+            json.put(JsonProtocolConstant.JSON_CATIGORY, String.valueOf(catigory));
+            json.put(JsonProtocolConstant.JSON_CONTENT, content);
+            json.put(JsonProtocolConstant.JSON_TRANSACT_ID, callback.getSeqId());
+            return json;
+        } catch (JSONException e) {
+            CKLOG.Error(TAG, "generateNotification() : JSONException - " + e.getMessage());
+        }
+        return null;
+    }
+
+    protected JSONObject generateNotification(final int catigory, final String content, SendDataCallback callback) {
         final JSONObject json = new JSONObject();
         try {
             json.put(JsonProtocolConstant.JSON_CATIGORY, String.valueOf(catigory));

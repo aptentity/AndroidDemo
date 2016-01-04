@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.borg.androidemo.R;
-import com.borg.androidemo.common.log.LogHelper;
+import com.borg.mvp.utils.LogHelper;
 
 public class AsyncTaskTestActivity extends AppCompatActivity implements View.OnClickListener{
 

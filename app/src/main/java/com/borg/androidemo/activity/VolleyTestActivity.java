@@ -10,7 +10,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.borg.androidemo.R;
-import com.borg.androidemo.common.log.LogHelper;
+import com.borg.mvp.utils.LogHelper;
 
 import org.json.JSONObject;
 //https://github.com/mcxiaoke/android-volley

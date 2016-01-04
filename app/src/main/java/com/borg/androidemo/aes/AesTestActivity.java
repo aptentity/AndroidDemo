@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import com.borg.androidemo.R;
-import com.borg.androidemo.common.log.LogHelper;
+import com.borg.mvp.utils.LogHelper;
 import com.borg.androidemo.common.utils.AESCipher;
 public class AesTestActivity extends Activity {
 

@@ -8,4 +8,5 @@
     <dimen name="common_marin_min">6dp</dimen>
     <dimen name="common_title">20sp</dimen>
     <dimen name="common_text">16sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

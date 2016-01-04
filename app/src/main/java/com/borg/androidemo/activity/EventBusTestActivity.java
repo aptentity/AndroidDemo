@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.borg.androidemo.R;
-import com.borg.androidemo.common.log.LogHelper;
+import com.borg.mvp.utils.LogHelper;
 
 import de.greenrobot.event.EventBus;
 //https://github.com/greenrobot/EventBus

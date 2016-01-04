@@ -56,7 +56,8 @@ public class BLEUtils {
 	 * @return
 	 */
 	public static boolean isWatchAddress(final String address) {
-		return (null != address && address.startsWith("22:22"));
+		//return (null != address && address.startsWith("22:22"));
+		return true;
 	}
 
 }

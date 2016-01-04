@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.borg.androidemo.R;
-import com.borg.androidemo.common.log.LogHelper;
+import com.borg.mvp.utils.LogHelper;
 import com.borg.androidemo.devices.api.BindType;
 import com.borg.androidemo.devices.api.Device;
 import com.borg.androidemo.devices.api.DeviceConnectListener;
@@ -93,15 +93,27 @@ public class BleTestActivity extends AppCompatActivity implements View.OnClickLi
 
             SendDataCallback callbck = new SendDataCallback(ServiceCategory.CATEGORY_BIND_AUTH, 15) {
                 @Override
-                public void onSuccess(String data) {
-                    LogHelper.d("send data onSuccess="+data);
-                    tvResult.setText("send data onSuccess="+data);
+                public void onSuccess(final String data) {
+                    LogHelper.d("send data onSuccess=" + data);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            tvResult.setText("send data onSuccess=" + data);
+                        }
+                    });
+
                 }
 
                 @Override
-                public void onFail(int responseCode) {
+                public void onFail(final int responseCode) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            tvResult.setText("send data onFail=" + responseCode);
+                        }
+                    });
                     LogHelper.d("send data onFail="+responseCode);
-                    tvResult.setText("send data onFail=" + responseCode);
+
                 }
             };
             mdevice.getDefaultDeviceConnection().sendData(str,ServiceCategory.CATEGORY_BIND_AUTH,callbck);

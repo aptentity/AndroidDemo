@@ -3,7 +3,7 @@ package com.borg.androidemo.service;
 import android.app.IntentService;
 import android.content.Intent;
 
-import com.borg.androidemo.common.log.LogHelper;
+import com.borg.mvp.utils.LogHelper;
 
 /**
  * Created by Gulliver(feilong) on 15/11/17.

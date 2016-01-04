@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.borg.androidemo.R;
-import com.borg.androidemo.common.log.LogHelper;
+import com.borg.mvp.utils.LogHelper;
 import com.borg.androidemo.service.TestIntentService;
 
 public class IntentServiceTestActivity extends AppCompatActivity {
