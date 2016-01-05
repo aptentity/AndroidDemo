@@ -3,6 +3,11 @@ package com.borg.mvp.view;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
@@ -54,6 +59,8 @@ public class DrawerLayoutActivity extends Activity {
                 R.layout.drawer_list_item, mPlanetTitles));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
+        setNotification();
+
     }
 
     /* The click listner for ListView in the navigation drawer */
@@ -74,5 +81,23 @@ public class DrawerLayoutActivity extends Activity {
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         mDrawerLayout.closeDrawer(mDrawerList);
+    }
+
+    private void setNotification(){
+        //简单的Notification
+        Intent intent = new Intent(this,MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        Notification notification = new Notification.Builder(this)
+                .setContentTitle("新消息")
+                .setContentText("点我就下载!")
+                .setSmallIcon(R.drawable.ic_folder)
+                .setWhen(System.currentTimeMillis())
+                .setContentIntent(pendingIntent)
+                .build();
+        NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(1,notification);
+
+        //remoteview
+
     }
 }
