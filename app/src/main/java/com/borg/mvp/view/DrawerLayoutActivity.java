@@ -17,6 +17,7 @@ import android.widget.ListView;
 
 import com.borg.androidemo.R;
 import com.borg.mvp.utils.LogHelper;
+import com.borg.mvp.utils.NetworkUtils;
 import com.borg.mvp.view.fragment.PlanetFragment;
 
 public class DrawerLayoutActivity extends Activity {
@@ -60,6 +61,14 @@ public class DrawerLayoutActivity extends Activity {
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         setNotification();
+
+        findViewById(R.id.content_frame).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                byte type= NetworkUtils.getNetworkClass(DrawerLayoutActivity.this);
+                LogHelper.d("type="+type);
+            }
+        });
 
     }
 
