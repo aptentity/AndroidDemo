@@ -265,6 +265,15 @@
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.borg.mvp.view.AnimationTestActivity"
+            android:label="@string/title_activity_animation_test" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
