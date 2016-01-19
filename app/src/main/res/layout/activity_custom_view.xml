@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.borg.mvp.view.CustomViewActivity">
     <com.borg.mvp.view.widget.CircleView
         android:layout_width="fill_parent"
@@ -11,5 +12,17 @@
         android:padding="10dp"
         app:cicle_color="@android:color/holo_green_dark"
         android:background="@android:color/black"/>
-
+    <com.borg.mvp.view.widget.HorizontalScrollViewEx
+        android:background="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="haha"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="haha"/>
+    </com.borg.mvp.view.widget.HorizontalScrollViewEx>
 </LinearLayout>
