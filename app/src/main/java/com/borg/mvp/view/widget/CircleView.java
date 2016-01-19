@@ -7,7 +7,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.StyleableRes;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Scroller;
 
 import com.borg.androidemo.R;
 import com.borg.mvp.utils.LogHelper;
@@ -98,5 +100,49 @@ public class CircleView extends View{
         int height = getHeight()-paddingTop-paddingButton;
         int radius = Math.min(width,height)/2;
         canvas.drawCircle(paddingLeft+width/2,paddingTop+height/2,radius,mPaint);
+    }
+
+    /**
+     * 使用动画实现
+     * @param event
+     * @return
+     */
+    private int mLastX;
+    private int mLastY;
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int)event.getRawX();
+        int y = (int)event.getRawY();
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_UP:
+                mLastX = x;
+                mLastY = y;
+                return super.onTouchEvent(event);//交给父类处理，否则onClick将无法触发
+            case MotionEvent.ACTION_MOVE:
+                int deltaX = x - mLastX;
+                int deltaY = y - mLastY;
+                int translationX = (int)getTranslationX()+deltaX;
+                int translationY = (int)getTranslationY()+deltaY;
+                setTranslationX(translationX);
+                setTranslationY(translationY);
+                break;
+            default:
+                break;
+        }
+        mLastX = x;
+        mLastY = y;
+        return true;
+    }
+
+    Scroller scroller = new Scroller(getContext());
+
+    @Override
+    public void computeScroll() {
+        if (scroller.computeScrollOffset()){
+            scrollTo(scroller.getCurrX(),scroller.getCurrY());
+            postInvalidate();
+        }
+        //super.computeScroll();
     }
 }

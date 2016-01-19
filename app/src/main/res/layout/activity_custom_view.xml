@@ -10,6 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="10dp"
+        android:id="@+id/cv_test"
+        android:onClick="onClick"
         app:cicle_color="@android:color/holo_green_dark"
         android:background="@android:color/black"/>
     <com.borg.mvp.view.widget.HorizontalScrollViewEx
@@ -25,4 +27,16 @@
             android:layout_height="wrap_content"
             android:text="haha"/>
     </com.borg.mvp.view.widget.HorizontalScrollViewEx>
+    <Button
+        android:id="@+id/btn_scrollto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="scrollTo"/>
+    <Button
+        android:id="@+id/btn_scrollby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="scrollBy"/>
 </LinearLayout>
