@@ -37,6 +37,25 @@ public class CustomViewActivity extends AppCompatActivity {
             case R.id.cv_test:
                 LogHelper.d(TAG,"click circle view");
                 break;
+            //线程测试
+            case R.id.btn_thread_start://在子线程中
+                new ThreadTest().start();
+                LogHelper.d(TAG, "thread start");
+                System.exit(0);
+                break;
+            case R.id.btn_thread_run://在调用线程中执行
+                new ThreadTest().run();
+                LogHelper.d(TAG,"thread run");
+                break;
+        }
+    }
+
+    private class ThreadTest extends Thread{
+        @Override
+        public void run() {
+            for (int i=0;i<100;i++){
+                LogHelper.d(TAG,""+i);
+            }
         }
     }
 
