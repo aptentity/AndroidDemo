@@ -31,6 +31,7 @@ public class CustomViewActivity extends AppCompatActivity {
                 break;
             case R.id.btn_scrollto:
                 LogHelper.d(TAG,"scroll to");
+                ToastUtil.showShort("scroll to");
                 scrollTo();
                 break;
             case R.id.cv_test:
