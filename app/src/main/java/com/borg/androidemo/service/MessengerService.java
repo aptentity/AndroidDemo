@@ -9,7 +9,7 @@ import android.os.Message;
 import android.os.Messenger;
 
 import com.borg.mvp.settings.Constants;
-import com.borg.mvp.utils.LogUtil;
+import com.borg.mvp.utils.LogHelper;
 
 /**
  * Created by Gulliver(feilong) on 15/12/18.
@@ -22,7 +22,7 @@ public class MessengerService extends Service{
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case Constants.MSG_FROM_CLIENT:
-                    LogUtil.d(TAG,"receiver client message:"+msg.getData().getString("msg"));
+                    LogHelper.d(TAG, "receiver client message:" + msg.getData().getString("msg"));
                     Messenger client = msg.replyTo;
                     Message replyMsg = Message.obtain(null,Constants.MSG_FROM_SERVICE);
                     Bundle bundle = new Bundle();

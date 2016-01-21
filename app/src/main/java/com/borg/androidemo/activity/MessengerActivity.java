@@ -13,7 +13,7 @@ import android.os.Bundle;
 import com.borg.androidemo.R;
 import com.borg.androidemo.service.MessengerService;
 import com.borg.mvp.settings.Constants;
-import com.borg.mvp.utils.LogUtil;
+import com.borg.mvp.utils.LogHelper;
 
 public class MessengerActivity extends AppCompatActivity {
     private static final String TAG = MessengerActivity.class.getSimpleName();
@@ -24,7 +24,7 @@ public class MessengerActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case Constants.MSG_FROM_SERVICE:
-                    LogUtil.d(TAG,"receiver msg from Service:"+msg.getData().getString("reply"));
+                    LogHelper.d(TAG, "receiver msg from Service:" + msg.getData().getString("reply"));
                     break;
                 default:
                     super.handleMessage(msg);

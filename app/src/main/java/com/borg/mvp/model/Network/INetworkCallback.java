@@ -5,5 +5,5 @@ package com.borg.mvp.model.Network;
  */
 public interface INetworkCallback {
     public void onSuccess(String result);
-    public void onFail(String result);
+    public void onFail(int code,String result);
 }
