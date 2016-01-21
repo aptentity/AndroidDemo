@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.borg.androidemo.R;
+import com.borg.mvp.model.Thread.TestThread;
 import com.borg.mvp.utils.LogHelper;
 import com.borg.mvp.utils.ToastUtil;
 
@@ -39,17 +40,30 @@ public class CustomViewActivity extends AppCompatActivity {
                 break;
             //线程测试
             case R.id.btn_thread_start://在子线程中
-                new ThreadTest().start();
+                Thread thread = new ThreadTest();
+                thread.start();
                 LogHelper.d(TAG, "thread start");
-                System.exit(0);
+                //并不是马上停止
+                //thread.stop();
+                mThread.start();
                 break;
             case R.id.btn_thread_run://在调用线程中执行
-                new ThreadTest().run();
-                LogHelper.d(TAG,"thread run");
+                LogHelper.d(TAG, "thread run");
+                //暂停或继续线程
+                if (mThread.isRunning()){
+                    mThread.onPause();
+                }else {
+                    mThread.onResume();
+                }
+
+                Thread thread1 = new ThreadTest();
+                thread1.run();
+
                 break;
         }
     }
 
+    private TestThread mThread = new TestThread();
     private class ThreadTest extends Thread{
         @Override
         public void run() {
