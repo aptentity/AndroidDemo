@@ -134,7 +134,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.AsyncTaskTestActivity"
+            android:name="com.borg.mvp.view.AsyncTaskTestActivity"
             android:label="@string/title_activity_async_task_test" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
