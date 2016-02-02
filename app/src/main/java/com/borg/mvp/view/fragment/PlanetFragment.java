@@ -38,6 +38,7 @@ public class PlanetFragment extends Fragment {
                 "drawable", getActivity().getPackageName());
         ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
         getActivity().setTitle(planet);
+
         return rootView;
     }
 }

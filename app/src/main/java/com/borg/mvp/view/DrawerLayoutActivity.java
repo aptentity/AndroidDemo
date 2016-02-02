@@ -105,8 +105,5 @@ public class DrawerLayoutActivity extends Activity {
                 .build();
         NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(1,notification);
-
-        //remoteview
-
     }
 }

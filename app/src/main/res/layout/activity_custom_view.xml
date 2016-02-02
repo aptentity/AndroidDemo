@@ -59,9 +59,14 @@
         android:onClick="onClick"
         android:id="@+id/btn_get_qr"
         android:text="get qr"/>
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:id="@+id/btn_get_contact"
+        android:text="get contack"/>
 </LinearLayout>

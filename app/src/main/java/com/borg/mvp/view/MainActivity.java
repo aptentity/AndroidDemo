@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.borg.androidemo.R;
 import com.borg.mvp.presenter.SplashPresenter;
+import com.borg.mvp.utils.LogHelper;
 import com.borg.mvp.utils.QRCodeUtils;
 import com.borg.mvp.utils.ToastUtil;
 import com.borg.mvp.view.widget.GenderSelectDlg;
@@ -24,7 +25,7 @@ import java.util.Locale;
 
 
 public class MainActivity extends Activity implements ISplashView,View.OnClickListener {
-
+	private final String TAG = MainActivity.class.getSimpleName();
 	SplashPresenter presenter;
 	private ProgressDialog progressBar;
 	private WaitDlg waitDlg;
@@ -66,8 +67,8 @@ public class MainActivity extends Activity implements ISplashView,View.OnClickLi
 	@Override
 	public void hideProcessBar() {
 		progressBar.hide();
-		waitDlg = new WaitDlg(this);
-		waitDlg.show("haha");
+//		waitDlg = new WaitDlg(this);
+//		waitDlg.show("haha");
 	}
 
 	@Override
@@ -85,15 +86,29 @@ public class MainActivity extends Activity implements ISplashView,View.OnClickLi
 		switch (v.getId()){
 			case R.id.btn_select_date:
 				Calendar dateAndTime = Calendar.getInstance(Locale.CHINA);
-				int year = dateAndTime.get(Calendar.YEAR);
-				int month = dateAndTime.get(Calendar.MONTH);
-				int day = dateAndTime.get(Calendar.DAY_OF_MONTH);
+				final int iyear = dateAndTime.get(Calendar.YEAR);
+				final int imonth = dateAndTime.get(Calendar.MONTH);
+				final int iday = dateAndTime.get(Calendar.DAY_OF_MONTH);
 				DatePickerDialog dlg = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 					@Override
 					public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 						ToastUtil.showShort(Integer.toString(year)+"/"+Integer.toString(monthOfYear+1)+"/"+Integer.toString(dayOfMonth));
+						LogHelper.d(TAG, "onDateSet:"+Integer.toString(year) + "/" + Integer.toString(monthOfYear + 1) + "/" + Integer.toString(dayOfMonth));
 					}
-				},year,month,day);
+				},iyear,imonth,iday);
+				//控制显示范围
+				final DatePicker picker = dlg.getDatePicker();
+				picker.init(iyear, imonth, iday, new DatePicker.OnDateChangedListener() {
+					@Override
+					public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+						LogHelper.d(TAG,"onDateChanged:"+Integer.toString(year)+"/"+Integer.toString(monthOfYear+1)+"/"+Integer.toString(dayOfMonth));
+						LogHelper.d(TAG,"onDateChanged today:"+Integer.toString(iyear)+"/"+Integer.toString(imonth+1)+"/"+Integer.toString(iday));
+
+						if (year*10000+(monthOfYear+1)*100+dayOfMonth>iyear*10000+(imonth+1)*100+iday){
+							picker.updateDate(iyear,imonth,iday);
+						}
+					}
+				});
 				dlg.show();
 			break;
 			case R.id.btn_select_gender:

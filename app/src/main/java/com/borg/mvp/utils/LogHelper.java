@@ -15,7 +15,7 @@ public class LogHelper {
 
     public static void d(String tag,String log){
         if (DevSettings.isDebugOn()){
-            Log.d(TAG+tag,log);
+            Log.e(TAG+tag,log);
         }
     }
 

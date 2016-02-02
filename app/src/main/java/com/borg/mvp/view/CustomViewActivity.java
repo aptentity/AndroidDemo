@@ -1,7 +1,12 @@
 package com.borg.mvp.view;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +28,12 @@ import java.io.File;
 import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
 
 public class CustomViewActivity extends AppCompatActivity {
     private final String TAG = CustomViewActivity.class.getSimpleName();
@@ -78,7 +89,83 @@ public class CustomViewActivity extends AppCompatActivity {
             case R.id.btn_get_qr://网络获取url，生成二维码
                 getQrCode();
                 break;
+            case R.id.btn_get_contact:
+                Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                startActivityForResult(intent,100);
+                break;
         }
+    }
+
+    private static final int CODE = 100;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode)
+        {
+            case (CODE) :
+            {
+                if (resultCode == Activity.RESULT_OK)
+                {
+                    Uri contactData = data.getData();
+                    Cursor c = managedQuery(contactData, null, null, null, null);
+                    c.moveToFirst();
+                    String phoneNum=this.getContactPhone(c);
+                    LogHelper.d(TAG,"get phone num:"+phoneNum);
+                }
+                break;
+
+            }
+
+        }
+    }
+
+
+    //获取联系人电话
+    private String getContactPhone(Cursor cursor)
+    {
+
+        int phoneColumn = cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER);
+        int phoneNum = cursor.getInt(phoneColumn);
+        String phoneResult="";
+        //System.out.print(phoneNum);
+        if (phoneNum > 0)
+        {
+            // 获得联系人的ID号
+            int idColumn = cursor.getColumnIndex(ContactsContract.Contacts._ID);
+            String contactId = cursor.getString(idColumn);
+            // 获得联系人的电话号码的cursor;
+            Cursor phones = getContentResolver().query(
+                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                    null,
+                    ContactsContract.CommonDataKinds.Phone.CONTACT_ID+ " = " + contactId,
+                    null, null);
+            //int phoneCount = phones.getCount();
+            //allPhoneNum = new ArrayList<String>(phoneCount);
+            if (phones.moveToFirst())
+            {
+                // 遍历所有的电话号码
+                for (;!phones.isAfterLast();phones.moveToNext())
+                {
+                    int index = phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+                    int typeindex = phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE);
+                    int phone_type = phones.getInt(typeindex);
+                    String phoneNumber = phones.getString(index);
+                    switch(phone_type)
+                    {
+                        case 2:
+                            phoneResult=phoneNumber;
+                            break;
+                    }
+                    //allPhoneNum.add(phoneNumber);
+                }
+                if (!phones.isClosed())
+                {
+                    phones.close();
+                }
+            }
+        }
+        return phoneResult;
     }
 
     /**
@@ -126,11 +213,11 @@ public class CustomViewActivity extends AppCompatActivity {
     private void check(){
         if (timer==null){
             timer = new Timer(true);
-            timer.schedule(task,1000,1000);
+            timer.schedule(new MyTimerTask(),1000,1000);
         }
     }
 
-    TimerTask task = new TimerTask() {
+    class MyTimerTask extends TimerTask{
         @Override
         public void run() {
             LogHelper.d(TAG,"qrresult...");
@@ -142,6 +229,10 @@ public class CustomViewActivity extends AppCompatActivity {
                     if (qrLoginResult.isSuccess()){
                         if (qrLoginResult.getCode().equals(QrLoginResult.LOGIN_SUCCESS)){
                             ToastUtil.showShort("login success");
+                            if (timer!=null){
+                                timer.cancel();
+                                timer = null;
+                            }
                         }else if (qrLoginResult.getCode().equals(QrLoginResult.LOGIN_EXPIRED)){
 
                         }
@@ -154,7 +245,7 @@ public class CustomViewActivity extends AppCompatActivity {
                 }
             });
         }
-    };
+    }
 
     @Override
     protected void onDestroy() {
@@ -193,5 +284,70 @@ public class CustomViewActivity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+    }
+
+
+    //使用Callable+Future获取执行结果
+    private void test(){
+        ExecutorService executor = Executors.newCachedThreadPool();
+        Task task = new Task();
+        Future<Integer> result = executor.submit(task);
+        executor.shutdown();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+
+        System.out.println("主线程在执行任务");
+
+        try {
+            System.out.println("task运行结果"+result.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("所有任务执行完毕");
+    }
+
+    class Task implements Callable<Integer> {
+        @Override
+        public Integer call() throws Exception {
+            System.out.println("子线程在进行计算");
+            Thread.sleep(3000);
+            int sum = 0;
+            for(int i=0;i<100;i++)
+                sum += i;
+            return sum;
+        }
+    }
+
+    //使用Callable+FutureTask获取执行结果
+    private void test2(){
+        ExecutorService executor = Executors.newCachedThreadPool();
+        Task task = new Task();
+        FutureTask<Integer> futureTask = new FutureTask<Integer>(task);
+        executor.submit(futureTask);
+        executor.shutdown();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+
+        System.out.println("主线程在执行任务");
+
+        try {
+            System.out.println("task运行结果"+futureTask.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("所有任务执行完毕");
     }
 }

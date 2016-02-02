@@ -2,6 +2,8 @@ package com.borg.mvp.model.Network;
 
 import android.util.Log;
 
+import com.borg.mvp.utils.LogHelper;
+
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
@@ -70,6 +72,12 @@ public class QrNetworkHelper {
     public static void setDaily(boolean daily){
         isDaily = daily;
     }
+
+    /**
+     * http get
+     * @param surl
+     * @param callback
+     */
     private static void get(final String surl,final INetworkCallback callback){
         Log.d(TAG,"url="+surl);
         new Thread(new Runnable() {
@@ -78,7 +86,7 @@ public class QrNetworkHelper {
                 try{
                     URL url = new URL(surl);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                    conn.setConnectTimeout(6*1000);
+                    conn.setConnectTimeout(5*1000);
                     int code = conn.getResponseCode();
                     if (code != 200){
                         callback.onFail(code,conn.getResponseMessage());
@@ -101,6 +109,11 @@ public class QrNetworkHelper {
         }).start();
     }
 
+    /**
+     * https get
+     * @param surl
+     * @param callback
+     */
     private static void getHttps(final String surl,final INetworkCallback callback){
         Log.d(TAG,"getHttps="+surl);
         new Thread(new Runnable() {
@@ -112,6 +125,7 @@ public class QrNetworkHelper {
                     HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
                     HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
                     HttpsURLConnection conn = (HttpsURLConnection)new URL(surl).openConnection();
+                    conn.setConnectTimeout(5*1000);
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
                     conn.connect();
@@ -124,6 +138,7 @@ public class QrNetworkHelper {
                     callback.onSuccess(sb.toString());
 
                 }catch(Exception e){
+                    LogHelper.d(TAG,e.getMessage());
                     callback.onFail(-1,"");
                 }
             }
