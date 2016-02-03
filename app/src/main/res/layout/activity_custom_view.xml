@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.borg.mvp.view.CustomViewActivity">
+    <com.borg.mvp.view.widget.MyEditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:hint_textSize="15sp"
+        android:hint="@string/action_scan"/>
     <com.borg.mvp.view.widget.CircleView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
