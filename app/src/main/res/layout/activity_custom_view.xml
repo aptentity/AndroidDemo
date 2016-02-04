@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.borg.mvp.view.CustomViewActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        android:id="@+id/tv_test"/>
     <com.borg.mvp.view.widget.MyEditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

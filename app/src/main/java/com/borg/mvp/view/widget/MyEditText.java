@@ -2,10 +2,13 @@ package com.borg.mvp.view.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.style.AbsoluteSizeSpan;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
@@ -32,7 +35,7 @@ public class MyEditText extends EditText{
         hintTextSize = a.getDimensionPixelSize(R.styleable.MyEditText_hint_textSize, hintTextSize);
         LogHelper.d(TAG,"hint text size="+hintTextSize);
         hintTextSize = (int)a.getDimension(R.styleable.MyEditText_hint_textSize, hintTextSize);
-        LogHelper.d(TAG,"hint text size="+hintTextSize);
+        LogHelper.d(TAG, "hint text size=" + hintTextSize);
         init();
     }
 
@@ -42,8 +45,10 @@ public class MyEditText extends EditText{
         SpannableString ss = new SpannableString(hint);
         // 新建一个属性对象,设置文字的大小
         AbsoluteSizeSpan ass = new AbsoluteSizeSpan(hintTextSize);
+        ForegroundColorSpan bcs = new ForegroundColorSpan(Color.RED);
         // 附加属性到文本
         ss.setSpan(ass, 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(bcs,0,ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         // 设置hint
         setHint(new SpannedString(ss)); // 一定要进行转换,否则属性会消失
     }

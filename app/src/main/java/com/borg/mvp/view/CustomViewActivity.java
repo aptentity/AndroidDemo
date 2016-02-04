@@ -5,14 +5,24 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ImageSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.borg.androidemo.R;
 import com.borg.mvp.model.Network.INetworkCallback;
@@ -39,12 +49,15 @@ public class CustomViewActivity extends AppCompatActivity {
     private final String TAG = CustomViewActivity.class.getSimpleName();
     private View mCircleView;
     private ImageView mImageView;
+    private TextView mTvTest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_view);
         mCircleView = findViewById(R.id.cv_test);
         mImageView = (ImageView)findViewById(R.id.imageView2);
+        mTvTest = (TextView)findViewById(R.id.tv_test);
+        toggleEllipsize(mTvTest,"啦啦啦啦啦啦啦啦老我亟待解决桑德菲杰老实交代傅雷家书了肯德基傅雷家书风口浪尖就急急急急急急急急急急急急急急急急急急");
     }
 
     /**
@@ -349,5 +362,76 @@ public class CustomViewActivity extends AppCompatActivity {
         }
 
         System.out.println("所有任务执行完毕");
+    }
+
+    /**
+     * 多余两行，两行最后是省略号，省略号后面是下拉更多
+     * @param tv
+     * @param desc
+     */
+    private void toggleEllipsize(final TextView tv,final String desc){
+        if(desc == null){
+            return;
+        }
+        tv.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+            @Override
+            public void onGlobalLayout() {
+                boolean isEllipsized = (tv.getTag() == null || tv.getTag().equals(false)) ? false : (Boolean) tv.getTag();
+                if (isEllipsized) {
+                    tv.setTag(false);
+                    tv.setText(desc);
+                } else {
+                    tv.setTag(true);
+                    int paddingLeft = tv.getPaddingLeft();
+                    int paddingRight = tv.getPaddingRight();
+                    TextPaint paint = tv.getPaint();
+                    float moreText = tv.getTextSize() * 3;
+                    float availableTextWidth = (tv.getWidth() - paddingLeft - paddingRight) * 2 - moreText;
+
+                    CharSequence ellipsizeStr = TextUtils.ellipsize(desc, paint, availableTextWidth, TextUtils.TruncateAt.END);
+                    if (ellipsizeStr.length() < desc.length()) {
+					/*String html = "<img src='game_info_lookmore'/>";
+					CharSequence charSequence = Html.fromHtml(html, new ImageGetter() {
+
+						@Override
+						public Drawable getDrawable(String source) {
+							Drawable drawable = getResources().getDrawable(
+									getResourceId(source));
+							drawable.setBounds(
+									0,
+									0,
+									drawable.getIntrinsicWidth()
+											- DensityUtil.dip2px(GridGameInfoActivity.this, 3),
+									drawable.getIntrinsicHeight()
+											- DensityUtil.dip2px(GridGameInfoActivity.this, 1));
+							return drawable;
+						}
+					}, null);
+					ellipsizeStr = ellipsizeStr.toString() + charSequence.toString();*/
+
+
+                        CharSequence temp = ellipsizeStr + ".";
+                        SpannableStringBuilder ssb = new SpannableStringBuilder(temp);
+                        Drawable dd = getResources().getDrawable(R.mipmap.ic_clear);
+                        dd.setBounds(0, 0, dd.getIntrinsicWidth(), dd.getIntrinsicHeight());
+                        ImageSpan is = new ImageSpan(dd, ImageSpan.ALIGN_BASELINE);
+                        ssb.setSpan(is, temp.length() - 1, temp.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+
+//					int yellow = getResources().getColor(R.color.red);
+//					ssb.setSpan(new ForegroundColorSpan(yellow),ssb.length()-2,ssb.length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        tv.setText(ssb);
+                        tv.setMovementMethod(LinkMovementMethod.getInstance());
+                    } else {
+                        tv.setText(desc);
+                    }
+                }
+                if (Build.VERSION.SDK_INT >= 16) {
+                    tv.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    tv.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+            }
+        });
     }
 }
