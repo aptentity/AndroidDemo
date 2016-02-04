@@ -21,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ import com.borg.mvp.model.entities.QrLoginResult;
 import com.borg.mvp.model.entities.QrResult;
 import com.borg.mvp.utils.LogHelper;
 import com.borg.mvp.utils.QRCodeUtils;
+import com.borg.mvp.utils.SmileyParser;
 import com.borg.mvp.utils.ToastUtil;
 
 import java.io.File;
@@ -50,6 +52,8 @@ public class CustomViewActivity extends AppCompatActivity {
     private View mCircleView;
     private ImageView mImageView;
     private TextView mTvTest;
+    SmileyParser smileyParser;
+    EditText mEtTest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +61,16 @@ public class CustomViewActivity extends AppCompatActivity {
         mCircleView = findViewById(R.id.cv_test);
         mImageView = (ImageView)findViewById(R.id.imageView2);
         mTvTest = (TextView)findViewById(R.id.tv_test);
+        mEtTest = (EditText)findViewById(R.id.et_test);
+        SmileyParser.init(this);
+        smileyParser = SmileyParser.getInstance();//进行初始化
+
+        String newContent = "哈哈" + "[XX]";
+        CharSequence replace = smileyParser.strToSmiley(newContent);
+        mEtTest.setText(replace);
+        mEtTest.setSelection(replace.length());
+
+
         toggleEllipsize(mTvTest,"啦啦啦啦啦啦啦啦老我亟待解决桑德菲杰老实交代傅雷家书了肯德基傅雷家书风口浪尖就急急急急急急急急急急急急急急急急急急");
     }
 
