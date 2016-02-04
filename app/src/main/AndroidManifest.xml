@@ -4,9 +4,18 @@
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
@@ -259,6 +268,7 @@
 
         <activity
             android:name="com.borg.mvp.view.CustomViewActivity"
+            android:theme="@style/titleTheme"
             android:label="@string/title_activity_custom_view" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -301,6 +311,27 @@
             </intent-filter>
         </activity>
         <activity android:name="com.borg.mvp.view.MultipleTypeListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.borg.hrMonitor.HeartRateMonitor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.borg.mvp.view.MyListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.borg.mvp.view.SwipeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

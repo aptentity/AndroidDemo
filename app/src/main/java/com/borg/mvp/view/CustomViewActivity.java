@@ -1,10 +1,12 @@
 package com.borg.mvp.view;
 
 import android.app.Activity;
+import android.app.WallpaperManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -17,12 +19,11 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.borg.androidemo.R;
@@ -31,6 +32,7 @@ import com.borg.mvp.model.Network.QrNetworkHelper;
 import com.borg.mvp.model.Thread.TestThread;
 import com.borg.mvp.model.entities.QrLoginResult;
 import com.borg.mvp.model.entities.QrResult;
+import com.borg.mvp.utils.ImageUtil;
 import com.borg.mvp.utils.LogHelper;
 import com.borg.mvp.utils.QRCodeUtils;
 import com.borg.mvp.utils.SmileyParser;
@@ -70,8 +72,40 @@ public class CustomViewActivity extends AppCompatActivity {
         mEtTest.setText(replace);
         mEtTest.setSelection(replace.length());
 
-
+        setWallpaper();
         toggleEllipsize(mTvTest,"啦啦啦啦啦啦啦啦老我亟待解决桑德菲杰老实交代傅雷家书了肯德基傅雷家书风口浪尖就急急急急急急急急急急急急急急急急急急");
+
+        //设置图片
+        Drawable drawable = getResources().getDrawable(R.drawable.head2_img);
+        //将Drawable转化为Bitmap
+        Bitmap bitmap = ImageUtil.drawableToBitmap(drawable);
+        //缩放图片
+        Bitmap zoomBitmap = ImageUtil.zoomBitmap(bitmap, 100, 100);
+        //获取圆角图片
+        Bitmap roundBitmap = ImageUtil.getRoundedCornerBitmap(zoomBitmap, 10.0f);
+        //获取倒影图片
+        Bitmap reflectBitmap = ImageUtil.createReflectionImageWithOrigin(zoomBitmap);
+        ImageView mImageView01 = (ImageView)findViewById(R.id.iv_test1);
+        ImageView mImageView02 = (ImageView)findViewById(R.id.iv_test2);
+        mImageView01.setImageBitmap(roundBitmap);
+        mImageView02.setImageBitmap(reflectBitmap);
+    }
+
+    /**
+     * 将桌面图片设为背景
+     */
+    private void setWallpaper(){
+        //获取WallpaperManager 壁纸管理器
+        WallpaperManager wallpaperManager = WallpaperManager.getInstance(this); // 获取壁纸管理器
+        // 获取当前壁纸
+        Drawable wallpaperDrawable = wallpaperManager.getDrawable();
+        //将Drawable,转成Bitmap
+        Bitmap bm = ((BitmapDrawable) wallpaperDrawable).getBitmap();
+
+        //获取布局
+        LinearLayout layout = (LinearLayout) this.findViewById(R.id.ll_main);
+        //设置 背景
+        layout.setBackgroundDrawable(new BitmapDrawable(bm));
     }
 
     /**

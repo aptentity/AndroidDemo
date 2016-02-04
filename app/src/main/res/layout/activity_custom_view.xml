@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/ll_main"
+    android:background="@android:color/background_dark"
     tools:context="com.borg.mvp.view.CustomViewActivity">
     <TextView
         android:layout_width="wrap_content"
@@ -38,33 +40,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="haha"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_test1"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_test2"/>
     </com.borg.mvp.view.widget.HorizontalScrollViewEx>
-    <Button
-        android:id="@+id/btn_scrollto"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="scrollTo"/>
-    <Button
-        android:id="@+id/btn_scrollby"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="scrollBy"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_scrollto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:background="@drawable/white_corner"
+            android:text="scrollTo"/>
+        <Button
+            android:id="@+id/btn_scrollby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/jbshape"
+            android:onClick="onClick"
+            android:text="scrollBy"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thread Start"
+            android:onClick="onClick"
+            android:id="@+id/btn_thread_start" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thread Start"
-        android:onClick="onClick"
-        android:id="@+id/btn_thread_start" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thread Run"
+            android:onClick="onClick"
+            android:id="@+id/btn_thread_run" />
+    </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thread Run"
-        android:onClick="onClick"
-        android:id="@+id/btn_thread_run" />
+
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

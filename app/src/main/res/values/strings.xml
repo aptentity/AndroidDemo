@@ -81,4 +81,8 @@
     <string name="title_activity_custom_view">CustomView</string>
     <string name="title_activity_animation_test">AnimationTestActivity</string>
     <string name="title_activity_sound_player">SoundPlayerActivity</string>
+    <string name="default_text">--</string>
+    <string name="basic_action_1">Action_1</string>
+    <string name="basic_action_2">Action_2</string>
+    <string name="str_orange">#fe7b27</string>
 </resources>
