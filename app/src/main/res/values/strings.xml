@@ -91,4 +91,50 @@
     <string name="pull_to_refresh_pull_label">下拉刷新天气</string>
     <string name="pull_to_refresh_release_label">松手刷新天气</string>
     <string name="pull_to_refresh_refreshing_label">正在刷新</string>
+
+    <string name="gridchart">GridChart</string>
+    <string name="linechart">LineChart</string>
+    <string name="sliplinechart">SlipLineChart</string>
+    <string name="slipareachart">SlipAreaChart</string>
+    <string name="slipbandchart">SlipBandChart</string>
+    <string name="stickchart">StickChart</string>
+    <string name="slipstickchart">SlipStickChart</string>
+    <string name="coloredslipstickchart">ColoredSlipStickChart</string>
+    <string name="mastickchart">MAStickChart</string>
+    <string name="maslipstickchart">MASlipStickChart</string>
+    <string name="minusstickchart">MinusStickChart</string>
+    <string name="slipminusstickchart">SlipMinusStickChart</string>
+    <string name="candlestickchart">CandleStickChart</string>
+    <string name="slipcandlestickchart">SlipCandleStickChart</string>
+    <string name="macandlestickchart">MACandleStickChart</string>
+    <string name="maslipcandlestickchart">MASlipCandleStickChart</string>
+    <string name="bollmaslipcandlestickchart">BOLLMASlipCandleStickChart</string>
+    <string name="macdchart">MACDChart</string>
+    <string name="piechart">PieChart</string>
+    <string name="piechart_title1">title1</string>
+    <string name="piechart_title2">title2</string>
+    <string name="piechart_title3">title3</string>
+    <string name="piechart_title4">title4</string>
+    <string name="piechart_title5">title5</string>
+    <string name="rosechart">RoseChart</string>
+    <string name="rosechart_title1">title1</string>
+    <string name="rosechart_title2">title2</string>
+    <string name="rosechart_title3">title3</string>
+    <string name="rosechart_title4">title4</string>
+    <string name="rosechart_title5">title5</string>
+    <string name="rosechart_title6">title6</string>
+    <string name="spiderwebchart">SpiderWebChart</string>
+    <string name="spiderwebchart_title1">title1</string>
+    <string name="spiderwebchart_title2">title2</string>
+    <string name="spiderwebchart_title3">title3</string>
+    <string name="spiderwebchart_title4">title4</string>
+    <string name="spiderwebchart_title5">title5</string>
+    <string name="radarchart">RadarChart</string>
+    <string name="radarchart_title1">title1</string>
+    <string name="radarchart_title2">title2</string>
+    <string name="radarchart_title3">title3</string>
+    <string name="radarchart_title4">title4</string>
+    <string name="radarchart_title5">title5</string>
+
+
 </resources>
