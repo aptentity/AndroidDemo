@@ -85,4 +85,10 @@
     <string name="basic_action_1">Action_1</string>
     <string name="basic_action_2">Action_2</string>
     <string name="str_orange">#fe7b27</string>
+    <string name="confirmNewColor">New</string>
+    <string name="confirmDefaultColor">Default</string>
+    <string name="colorPickerTitle">Select a Color</string>
+    <string name="pull_to_refresh_pull_label">下拉刷新天气</string>
+    <string name="pull_to_refresh_release_label">松手刷新天气</string>
+    <string name="pull_to_refresh_refreshing_label">正在刷新</string>
 </resources>
