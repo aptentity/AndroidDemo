@@ -23,6 +23,15 @@ android {
             dirs 'src/main/'
         }
     }
+
+    /**
+     * for aidl
+     */
+    sourceSets{
+        main{
+            aidl.srcDirs=['src/main/java']
+        }
+    }
 }
 
 dependencies {
