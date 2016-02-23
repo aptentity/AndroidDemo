@@ -42,4 +42,6 @@
     <drawable name="grassgreen">#FF009600</drawable>
     <drawable name="lightgray">#FFD3D3D3</drawable>
     <drawable name="darkgray">#00535252</drawable>
+    <color name="color_item_press">#ffff0000</color>
+    <color name="color_item_normal">#44ff0000</color>
 </resources>

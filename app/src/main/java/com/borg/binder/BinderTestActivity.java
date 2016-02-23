@@ -73,4 +73,13 @@ public class BinderTestActivity extends AppCompatActivity{
         }
     };
     /********************aidl test end*******************/
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mRemoteAIDLService!=null){
+            unbindService(mRemoteAIDLConnection);
+        }
+    }
 }
+

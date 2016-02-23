@@ -16,6 +16,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="unbind AIDL"
+        android:onClick="onBinderClick"
+        android:id="@+id/btn_aidl_unbind" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="AIDL add"
         android:onClick="onBinderClick"
         android:id="@+id/btn_aidl_add" />
