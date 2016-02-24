@@ -136,6 +136,6 @@
     <string name="radarchart_title4">title4</string>
     <string name="radarchart_title5">title5</string>
     <string name="title_activity_aidltest">AIDLTestActivity</string>
-
+    <string name="loading">加载中...</string>
 
 </resources>

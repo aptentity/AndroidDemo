@@ -2,11 +2,11 @@ package com.borg.mvp.view.recyclerview;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,10 +23,10 @@ import java.util.List;
 public class HomeActivity extends ActionBarActivity
 {
 
-	private RecyclerView mRecyclerView;
+	private LoadMoreRecyclerView mRecyclerView;
 	private List<String> mDatas;
 	private HomeAdapter mAdapter;
-
+	private SwipeRefreshLayout swipeRefreshLayout;
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -37,7 +37,7 @@ public class HomeActivity extends ActionBarActivity
 
 		RecyclerViewHeader header = (RecyclerViewHeader) findViewById(R.id.header);
 
-		mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
+		mRecyclerView = (LoadMoreRecyclerView) findViewById(R.id.id_recyclerview);
 		mAdapter = new HomeAdapter(this, mDatas);
 
 		mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,
@@ -50,7 +50,27 @@ public class HomeActivity extends ActionBarActivity
 		mRecyclerView.addItemDecoration(new DividerGridItemDecoration(this));
 		// 设置item动画
 		mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+		mRecyclerView.setAutoLoadMoreEnable(true);
+		mRecyclerView.setLoadMoreListener(new LoadMoreRecyclerView.LoadMoreListener() {
+			@Override
+			public void onLoadMore() {
+				mRecyclerView.postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						swipeRefreshLayout.setRefreshing(false);
+						mRecyclerView.notifyMoreFinish(false);
+					}
+				}, 1000);
+			}
+		});
 
+		swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.refresh_layout);
+		swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				swipeRefreshLayout.setRefreshing(false);
+			}
+		});
 		initEvent();
 
 	}
