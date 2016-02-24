@@ -1,6 +1,5 @@
 package com.borg.mvp.utils;
 
-import android.os.*;
 import android.os.Process;
 
 import java.util.regex.Pattern;

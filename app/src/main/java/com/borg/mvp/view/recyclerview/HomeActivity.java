@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bartoszlipinski.recyclerviewheader.RecyclerViewHeader;
 import com.borg.androidemo.R;
 import com.borg.mvp.view.recyclerview.HomeAdapter.OnItemClickLitener;
 
@@ -34,11 +35,16 @@ public class HomeActivity extends ActionBarActivity
 
 		initData();
 
+		RecyclerViewHeader header = (RecyclerViewHeader) findViewById(R.id.header);
+
 		mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
 		mAdapter = new HomeAdapter(this, mDatas);
 
 		mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,
 				StaggeredGridLayoutManager.VERTICAL));
+
+		header.attachTo(mRecyclerView, true);
+
 		mRecyclerView.setAdapter(mAdapter);
 
 		mRecyclerView.addItemDecoration(new DividerGridItemDecoration(this));
