@@ -28,6 +28,10 @@ public class ToastUtil {
         showBase(text, Toast.LENGTH_SHORT);
     }
 
+    /**
+     * 显示bebug的toast
+     * @param text
+     */
     public static void showDebug(final String text){
         if (DevSettings.isDebugOn()){
             showShort(text);

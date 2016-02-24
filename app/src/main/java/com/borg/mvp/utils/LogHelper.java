@@ -8,22 +8,58 @@ import com.borg.mvp.settings.DevSettings;
  * Created by Gulliver(feilong) on 15/11/15.
  */
 public class LogHelper {
-    private static final String TAG = "[borg]";
-    public static void d(String text){
-        Log.d(TAG,text);
+
+    private LogHelper(){
+        throw new UnsupportedOperationException("cannot be instantiated");
     }
 
-    public static void d(String tag,String log){
+    private static final String TAG = "[borg]";
+
+    public static void e(String msg){
         if (DevSettings.isDebugOn()){
-            Log.e(TAG+tag,log);
+            Log.e(TAG,msg);
         }
     }
 
-    public static void e(String tag,String log){
-        Log.e(TAG + tag, log);
+    public static void d(String msg){
+        if (DevSettings.isDebugOn()){
+            Log.d(TAG, msg);
+        }
     }
 
-    public static void e(String log){
-        e("", log);
+    public static void i(String msg){
+        if (DevSettings.isDebugOn()){
+            Log.i(TAG, msg);
+        }
+    }
+
+    public static void v(String msg){
+        if (DevSettings.isDebugOn()){
+            Log.v(TAG, msg);
+        }
+    }
+
+    public static void d(String tag,String msg){
+        if (DevSettings.isDebugOn()){
+            Log.d(TAG + tag, msg);
+        }
+    }
+
+    public static void e(String tag,String msg){
+        if (DevSettings.isDebugOn()){
+            Log.e(TAG + tag, msg);
+        }
+    }
+
+    public static void i(String tag,String msg){
+        if (DevSettings.isDebugOn()){
+            Log.i(TAG + tag, msg);
+        }
+    }
+
+    public static void v(String tag,String msg){
+        if (DevSettings.isDebugOn()){
+            Log.v(TAG + tag, msg);
+        }
     }
 }
