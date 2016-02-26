@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -18,10 +19,12 @@ import java.util.List;
 import java.util.Map;
 
 public class FirstActivity extends ListActivity {
-
+    public static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000; //需要自己定义标志
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //屏蔽home
+        this.getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);
 
         setListAdapter(new SimpleAdapter(this, getData(),
                 android.R.layout.simple_list_item_1, new String[]{"title"},
@@ -81,5 +84,22 @@ public class FirstActivity extends ListActivity {
 
         Intent intent = (Intent) map.get("intent");
         startActivity(intent);
+    }
+
+    /**
+     * 在2.3版本以下重写下面方法就能重写home键
+     */
+    @Override
+    public void onAttachedToWindow() {
+        //this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
+        super.onAttachedToWindow();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == event. KEYCODE_HOME) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
