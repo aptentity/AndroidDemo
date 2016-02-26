@@ -1,6 +1,7 @@
 package com.borg.mvp.utils;
 
 import android.app.Activity;
+import android.app.KeyguardManager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
@@ -123,5 +124,15 @@ public class ScreenUtils
 
     }
 
+    /**
+     * 判断系统是否处在锁屏状态
+     * @return
+     */
+    public static boolean isShowingLocked(Context context){
+        KeyguardManager km =
+                (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+        boolean showingLocked = km.inKeyguardRestrictedInputMode();
+        return  showingLocked;
+    }
 }
 

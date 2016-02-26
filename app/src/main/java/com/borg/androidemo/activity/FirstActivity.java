@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.borg.mvp.utils.LogHelper;
 import com.borg.mvp.utils.CommonUtil;
+import com.borg.mvp.utils.LogHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;

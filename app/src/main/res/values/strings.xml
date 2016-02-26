@@ -137,5 +137,11 @@
     <string name="radarchart_title5">title5</string>
     <string name="title_activity_aidltest">AIDLTestActivity</string>
     <string name="loading">加载中...</string>
-
+    <string name="title_section1">RelativeLayout 1</string>
+    <string name="title_section2">RelativeLayout 2</string>
+    <string name="title_section3">FrameLayout 1</string>
+    <string name="title_section4">Complex RelativeLayout</string>
+    <string name="title_section5">LinearLayout 1</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

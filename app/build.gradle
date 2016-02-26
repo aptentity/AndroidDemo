@@ -39,6 +39,8 @@ dependencies {
     compile fileTree(dir: 'src/main/libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:recyclerview-v7:23.0.+'
+    compile 'com.android.support:support-v4:23.0.1'
+    compile 'com.android.support:percent:23.0.1'
     compile 'com.bartoszlipinski.recyclerviewheader:library:1.2.0'
     compile files('src/main/libs/fastjson-1.2.2.jar')
     compile files('src/main/libs/okhttp-2.5.0.jar')
