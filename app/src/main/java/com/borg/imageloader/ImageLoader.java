@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 
+import com.borg.mvp.utils.LogHelper;
+
 import java.lang.reflect.Field;
 import java.util.LinkedList;
 import java.util.concurrent.ExecutorService;
@@ -19,6 +21,7 @@ import java.util.concurrent.Semaphore;
 
 public class ImageLoader
 {
+	private static final String TAG = ImageLoader.class.getSimpleName();
 	/**
 	 * 图片缓存的核心类
 	 */
@@ -122,6 +125,7 @@ public class ImageLoader
 					@Override
 					public void handleMessage(Message msg)
 					{
+						LogHelper.d(TAG,"handleMessage!!");
 						mThreadPool.execute(getTask());
 						try
 						{
@@ -165,6 +169,7 @@ public class ImageLoader
 	 */
 	public void loadImage(final String path, final ImageView imageView)
 	{
+		//LogHelper.d(TAG,"loadImage path="+path);
 		// set tag
 		imageView.setTag(path);
 		// UI线程
@@ -199,12 +204,18 @@ public class ImageLoader
 			mHandler.sendMessage(message);
 		} else
 		{
+			LogHelper.d(TAG,"addTask path="+path);
 			addTask(new Runnable()
 			{
 				@Override
 				public void run()
 				{
+					LogHelper.d(TAG,"run path="+path);
+					try{
+						Thread.sleep(100);
+					}catch (InterruptedException e){
 
+					}
 					ImageSize imageSize = getImageViewWidth(imageView);
 
 					int reqWidth = imageSize.width;

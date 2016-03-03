@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name = "android.permission.DISABLE_KEYGUARD"/><!-- 屏蔽HOME键需要的权限 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> <!-- 屏蔽HOME键需要的权限 -->
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
@@ -95,13 +95,14 @@
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
-
-        <service android:name="com.borg.binder.aidil.RemoteAidlService"
-            android:process=":remote">
+        <service
+            android:name="com.borg.binder.aidil.RemoteAidlService"
+            android:process=":remote" >
             <intent-filter>
-                <action android:name="com.borg.myaidl"></action>
+                <action android:name="com.borg.myaidl" />
             </intent-filter>
         </service>
+
         <activity
             android:name=".aes.AesTestActivity"
             android:label="@string/title_activity_aes_test" >
@@ -390,31 +391,39 @@
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.recyclerview.HomeActivity">
+        <activity android:name="com.borg.mvp.view.recyclerview.HomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.recyclerview.StaggeredGridLayoutActivity">
-
+        <activity android:name="com.borg.mvp.view.recyclerview.StaggeredGridLayoutActivity" >
         </activity>
-        <activity android:name="com.borg.mvp.view.recyclerview.MainActivity">
+        <activity android:name="com.borg.mvp.view.recyclerview.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.percentLayout.MainActivity">
+        <activity android:name="com.borg.mvp.view.percentLayout.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.imageloader.ImageLoaderMainActivity">
+        <activity android:name="com.borg.imageloader.ImageLoaderMainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.borg.mvp.view.SettingsActivity"
+            android:label="@string/title_activity_settings" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
