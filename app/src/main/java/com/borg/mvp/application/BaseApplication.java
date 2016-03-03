@@ -5,6 +5,10 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.orhanobut.logger.LogLevel;
+import com.orhanobut.logger.Logger;
+
+
 /**
  * Created by Gulliver(feilong) on 15/12/11.
  */
@@ -18,6 +22,12 @@ public class BaseApplication extends Application{
         mContext = getApplicationContext();
         mMainThreadLooper = getMainLooper();
         mMainThreadHandler = new Handler();
+
+
+        //初始化日志
+        Logger.init("BORG").setMethodCount(3).hideThreadInfo().setLogLevel(LogLevel.FULL);
+
+        Logger.t("zfl").d("test");
     }
 
     public static Context getAppContext() {

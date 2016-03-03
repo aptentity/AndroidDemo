@@ -53,4 +53,5 @@ dependencies {
     compile files('src/main/libs/lite-async-1.0.0.jar')
     compile files('src/main/libs/core-3.2.1.jar')
     compile files('src/main/libs/nineoldandroids-2.4.0.jar')
+    compile 'com.orhanobut:logger:1.8'//log输出框架
 }
