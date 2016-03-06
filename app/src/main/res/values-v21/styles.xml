@@ -5,4 +5,12 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/gray_darker</item>
+        <item name="android:colorPrimary">@color/gray_darker</item>
+        <item name="android:colorPrimaryDark">@color/gray_darker</item>
+    </style>
 </resources>

@@ -430,6 +430,13 @@
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name="com.borg.mvp.view.BaseActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
