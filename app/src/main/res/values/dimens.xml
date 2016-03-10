@@ -10,4 +10,7 @@
     <dimen name="common_text">16sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="navigation_drawer_width">240dp</dimen>
+    <dimen name="viewpager_margin">-64dp</dimen>
+    <dimen name="viewpager_margin_fix">32dp</dimen>
+    <dimen name="viewpager_padding">10dp</dimen>
 </resources>

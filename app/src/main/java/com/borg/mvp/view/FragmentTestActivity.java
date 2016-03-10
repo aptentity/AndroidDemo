@@ -1,27 +1,22 @@
 package com.borg.mvp.view;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 
 import com.borg.androidemo.R;
 import com.borg.mvp.utils.LogHelper;
 import com.borg.mvp.view.fragment.TestFragment;
 
-public class FragmentTestActivity extends Activity {
+public class FragmentTestActivity extends FragmentActivity {
     private final String TAG = FragmentTestActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LogHelper.d(TAG, "onCreate");
         setContentView(R.layout.activity_fragment_test2);
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.tv_fragment,new TestFragment());
         transaction.addToBackStack(null);
         transaction.commit();

@@ -1,14 +1,14 @@
 package com.borg.mvp.view;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,7 +20,7 @@ import com.borg.mvp.utils.LogHelper;
 import com.borg.mvp.utils.NetworkUtils;
 import com.borg.mvp.view.fragment.PlanetFragment;
 
-public class DrawerLayoutActivity extends Activity {
+public class DrawerLayoutActivity extends FragmentActivity {
     private final String TAG = DrawerLayoutActivity.class.getSimpleName();
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -86,7 +86,8 @@ public class DrawerLayoutActivity extends Activity {
         Bundle args = new Bundle();
         args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
         fragment.setArguments(args);
-        FragmentManager fragmentManager = getFragmentManager();
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         mDrawerLayout.closeDrawer(mDrawerList);
