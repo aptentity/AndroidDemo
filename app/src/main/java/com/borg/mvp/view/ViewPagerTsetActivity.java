@@ -48,11 +48,13 @@ public class ViewPagerTsetActivity extends AppCompatActivity {
         };
 
         mViewPager.setAdapter(mAdapter);
-
+        mViewPager.setOffscreenPageLimit(mFragments.size());//缓存的page数量
         mViewPager.addOnPageChangeListener(listener);
+
         initCirclePoint();
         CircleIndicator indicator = (CircleIndicator)findViewById(R.id.indicator);
         indicator.setViewPager(mViewPager);
+
     }
 
     /**

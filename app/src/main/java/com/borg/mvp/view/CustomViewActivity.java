@@ -130,6 +130,8 @@ public class CustomViewActivity extends AppCompatActivity {
                 break;
             case R.id.cv_test:
                 LogHelper.d(TAG,"click circle view");
+                Intent i = new Intent("com.yunos.account.action.MANAGE");
+                startActivity(i);
                 break;
             //线程测试
             case R.id.btn_thread_start://在子线程中
