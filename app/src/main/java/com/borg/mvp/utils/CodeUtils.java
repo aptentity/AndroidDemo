@@ -9,7 +9,7 @@ import java.net.URLEncoder;
 public class CodeUtils {
     public static String getUTF8(String source){
         try {
-            return URLEncoder.encode(source, "UTF-8")
+            return URLEncoder.encode(source, "UTF-8");
             //return URLDecoder.decode(source, "UTF-8");
         } catch (Exception e) {
             // TODO: handle exception
