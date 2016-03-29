@@ -13,4 +13,9 @@
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowIsTranslucent">true</item>
   </style>
+  <style name="Theme.Account.Dialog" parent="@style/Base.Theme.AppCompat.Light">
+    <item name="android:windowBackground">@color/fridge_transparent</item>
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+  </style>
 </resources>

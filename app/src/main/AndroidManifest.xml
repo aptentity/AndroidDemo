@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.borg.androidemo" >
+    package="com.borg.androidemo">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -29,31 +29,31 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         <activity
             android:name=".activity.FirstActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.FileChooserActivity" >
+        <activity android:name=".activity.FileChooserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.MainActivity" >
+        <activity android:name="com.borg.mvp.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LiteAsyncSamplesActivity" >
+        <activity android:name=".activity.LiteAsyncSamplesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,7 +62,7 @@
         </activity>
         <activity
             android:name=".activity.FragmentTestActivity"
-            android:label="@string/title_activity_fragment_test" >
+            android:label="@string/title_activity_fragment_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -71,7 +71,7 @@
         </activity>
         <activity
             android:name=".activity.HandlerTestActivity"
-            android:label="@string/title_activity_handler_test" >
+            android:label="@string/title_activity_handler_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -80,7 +80,7 @@
         </activity>
         <activity
             android:name=".notification.NotificationListenerTestActivity"
-            android:label="@string/title_activity_notification_listener_test" >
+            android:label="@string/title_activity_notification_listener_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -90,14 +90,14 @@
 
         <service
             android:name=".notification.NotificationMonitor"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
         <service
             android:name="com.borg.binder.aidil.RemoteAidlService"
-            android:process=":remote" >
+            android:process=":remote">
             <intent-filter>
                 <action android:name="com.borg.myaidl" />
             </intent-filter>
@@ -105,7 +105,7 @@
 
         <activity
             android:name=".aes.AesTestActivity"
-            android:label="@string/title_activity_aes_test" >
+            android:label="@string/title_activity_aes_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -114,7 +114,7 @@
         </activity>
         <activity
             android:name=".activity.FastjsonTestActivity"
-            android:label="@string/title_activity_fastjson_test" >
+            android:label="@string/title_activity_fastjson_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -123,7 +123,7 @@
         </activity>
         <activity
             android:name=".activity.HandlerThreadTestActivity"
-            android:label="@string/title_activity_handler_thread_test" >
+            android:label="@string/title_activity_handler_thread_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -132,7 +132,7 @@
         </activity>
         <activity
             android:name=".activity.IntentServiceTestActivity"
-            android:label="@string/title_activity_intent_service_test" >
+            android:label="@string/title_activity_intent_service_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -144,7 +144,7 @@
 
         <activity
             android:name=".activity.OkHttpTestActivity"
-            android:label="@string/title_activity_ok_http_test" >
+            android:label="@string/title_activity_ok_http_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -153,7 +153,7 @@
         </activity>
         <activity
             android:name="com.borg.mvp.view.AsyncTaskTestActivity"
-            android:label="@string/title_activity_async_task_test" >
+            android:label="@string/title_activity_async_task_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -163,7 +163,7 @@
         <activity
             android:name=".ble.DeviceScanActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -181,7 +181,7 @@
         <activity
             android:name=".ble2.ScanActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -193,7 +193,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activity.VolleyTestActivity"
-            android:label="@string/title_activity_volley_test" >
+            android:label="@string/title_activity_volley_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -202,7 +202,7 @@
         </activity>
         <activity
             android:name=".activity.EventBusTestActivity"
-            android:label="@string/title_activity_event_bus_test" >
+            android:label="@string/title_activity_event_bus_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -211,14 +211,14 @@
         </activity>
         <activity
             android:name=".activity.SmartImageTestActivity"
-            android:label="@string/title_activity_smart_image_test" >
+            android:label="@string/title_activity_smart_image_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragment.MainActivity" >
+        <activity android:name=".fragment.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -227,20 +227,18 @@
         </activity>
         <activity
             android:name=".ble.BleTestActivity"
-            android:label="@string/title_activity_ble_test" >
-        </activity>
+            android:label="@string/title_activity_ble_test"></activity>
 
-        <service android:name=".devices.connection.bluetooth.ble.service.BLEService" >
+        <service android:name=".devices.connection.bluetooth.ble.service.BLEService">
             <intent-filter>
                 <action android:name="com.yunos.alible.remoteservice" />
             </intent-filter>
         </service>
         <service
             android:name=".service.MessengerService"
-            android:process=":remote" >
-        </service>
+            android:process=":remote"></service>
 
-        <activity android:name=".activity.MessengerActivity" >
+        <activity android:name=".activity.MessengerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -250,7 +248,7 @@
         <activity
             android:name="com.borg.mvp.view.DrawerLayoutActivity"
             android:label="@string/title_activity_drawer_layout"
-            android:theme="@style/NoActionBar" >
+            android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -259,7 +257,7 @@
         </activity>
         <activity
             android:name="com.borg.mvp.view.NotificationListenerTestActivity"
-            android:label="@string/title_activity_notification_listener_test" >
+            android:label="@string/title_activity_notification_listener_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -269,7 +267,7 @@
 
         <service
             android:name="com.borg.mvp.service.NotificationMonitor"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
@@ -278,7 +276,7 @@
         <activity
             android:name="com.borg.mvp.view.CustomViewActivity"
             android:label="@string/title_activity_custom_view"
-            android:theme="@style/titleTheme" >
+            android:theme="@style/titleTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -287,7 +285,7 @@
         </activity>
         <activity
             android:name="com.borg.mvp.view.AnimationTestActivity"
-            android:label="@string/title_activity_animation_test" >
+            android:label="@string/title_activity_animation_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -296,7 +294,7 @@
         </activity>
         <activity
             android:name="com.borg.mvp.view.SoundPlayerActivity"
-            android:label="@string/title_activity_sound_player" >
+            android:label="@string/title_activity_sound_player">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -305,77 +303,77 @@
         </activity>
         <activity
             android:name="com.borg.mvp.view.FragmentTestActivity"
-            android:label="@string/title_activity_fragment_test" >
+            android:label="@string/title_activity_fragment_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.SearchResultActivity" >
+        <activity android:name="com.borg.mvp.view.SearchResultActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.MultipleTypeListActivity" >
+        <activity android:name="com.borg.mvp.view.MultipleTypeListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.hrMonitor.HeartRateMonitor" >
+        <activity android:name="com.borg.hrMonitor.HeartRateMonitor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.MyListActivity" >
+        <activity android:name="com.borg.mvp.view.MyListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.SwipeActivity" >
+        <activity android:name="com.borg.mvp.view.SwipeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.SlideCutListActivity" >
+        <activity android:name="com.borg.mvp.view.SlideCutListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.MySwipeActivity" >
+        <activity android:name="com.borg.mvp.view.MySwipeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.ViewPagerActivity" >
+        <activity android:name="com.borg.mvp.view.ViewPagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.ViewPager2Activity" >
+        <activity android:name="com.borg.mvp.view.ViewPager2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="cn.limc.androidcharts.AndroidChartsActivity" >
+        <activity android:name="cn.limc.androidcharts.AndroidChartsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -384,37 +382,36 @@
         </activity>
         <activity
             android:name="com.borg.binder.BinderTestActivity"
-            android:label="@string/title_activity_aidltest" >
+            android:label="@string/title_activity_aidltest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.recyclerview.HomeActivity" >
+        <activity android:name="com.borg.mvp.view.recyclerview.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.recyclerview.StaggeredGridLayoutActivity" >
-        </activity>
-        <activity android:name="com.borg.mvp.view.recyclerview.MainActivity" >
+        <activity android:name="com.borg.mvp.view.recyclerview.StaggeredGridLayoutActivity"></activity>
+        <activity android:name="com.borg.mvp.view.recyclerview.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.percentLayout.MainActivity" >
+        <activity android:name="com.borg.mvp.view.percentLayout.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.imageloader.ImageLoaderMainActivity" >
+        <activity android:name="com.borg.imageloader.ImageLoaderMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -423,14 +420,14 @@
         </activity>
         <activity
             android:name="com.borg.mvp.view.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/title_activity_settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.BaseActivity" >
+        <activity android:name="com.borg.mvp.view.BaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -439,7 +436,7 @@
         </activity>
         <activity
             android:name="com.borg.mvp.view.ViewDragHelperActivity"
-            android:label="@string/title_activity_view_drag_helper" >
+            android:label="@string/title_activity_view_drag_helper">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -448,7 +445,15 @@
         </activity>
         <activity
             android:name="com.borg.mvp.view.ViewPagerTsetActivity"
-            android:label="@string/title_activity_view_pager_tset" >
+            android:label="@string/title_activity_view_pager_tset">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.borg.mvp.view.BlurActivity"
+            android:theme="@style/Theme.Account.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

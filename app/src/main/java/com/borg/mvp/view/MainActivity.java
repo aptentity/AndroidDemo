@@ -5,6 +5,8 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -34,7 +36,7 @@ public class MainActivity extends Activity implements ISplashView,View.OnClickLi
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mvp);
-		
+		getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 		presenter = new SplashPresenter(this);
 		findViewById(R.id.btn_select_date).setOnClickListener(this);
 		findViewById(R.id.btn_select_gender).setOnClickListener(this);

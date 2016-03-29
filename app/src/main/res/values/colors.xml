@@ -55,4 +55,5 @@
     <color name="green">#34515c</color>
     <color name="green_dark">#1e3e4a</color>
     <color name="white">#fafafa</color>
+    <color name="fridge_transparent">#90000000</color>
 </resources>
