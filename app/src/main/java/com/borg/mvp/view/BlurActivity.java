@@ -1,11 +1,18 @@
 package com.borg.mvp.view;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
 
 import com.borg.androidemo.R;
 import com.borg.mvp.utils.LogHelper;
+import com.borg.mvp.view.widget.BlurDialogTest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.FutureTarget;
 import com.bumptech.glide.request.target.Target;
@@ -44,14 +51,50 @@ public class BlurActivity extends Activity {
 
         mBlurEngine.setBlurActionBar(false);
 
-
         setContentView(R.layout.activity_blur);
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                showAlertDialog();
+                Intent intent = new Intent();
+                intent.setClassName("com.aliyun.fota", "com.aliyun.fota.FotaUpdateInfo");
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
+        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BlurActivityTest.mHoldingActivity = BlurActivity.this;
+                startActivity(new Intent(BlurActivity.this,BlurActivityTest.class));
+            }
+        });
     }
+
+    private void showAlertDialog(){
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.Theme_D1NoTitleDim);
+//        builder.setTitle("test");
+//        builder.setMessage("my test");
+//        builder.setCancelable(false);
+//        builder.setPositiveButton("setting", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int whichButton) {
+//            }
+//        });
+//        builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int whichButton) {
+//            }
+//        });
+//        AlertDialog dialog = builder.create();
+//        dialog.show();
+        BlurDialogTest dialogTest = new BlurDialogTest(this);
+        dialogTest.show();
+    }
+
 
     @Override
     protected void onStart() {
-        mBlurEngine.onResume(false);
+        //mBlurEngine.onResume(false);
         super.onStart();
     }
 
@@ -59,14 +102,14 @@ public class BlurActivity extends Activity {
     protected void onResume() {
 
         super.onResume();
-        //mBlurEngine.onResume(false);
-        test();
+//        mBlurEngine.onResume(false);
+        //test();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mBlurEngine.onDestroy();
+//        mBlurEngine.onDestroy();
     }
 
     protected int getBlurRadius() {
