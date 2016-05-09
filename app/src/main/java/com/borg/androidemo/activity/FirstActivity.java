@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ListView;
@@ -12,6 +13,7 @@ import android.widget.SimpleAdapter;
 
 import com.borg.mvp.utils.CommonUtil;
 import com.borg.mvp.utils.LogHelper;
+import com.borg.mvp.utils.TimeUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +35,8 @@ public class FirstActivity extends ListActivity {
 
         LogHelper.d("13810306806=" + CommonUtil.isMobileNumber("13810306806"));
         LogHelper.d("1381030680="+ CommonUtil.isMobileNumber("1381030680"));
+        boolean in = TimeUtil.isIn(17,30,18,0);
+        Log.v("zfl","in="+in);
     }
 
     final String Category = "aptentity.intent.category.APT_CODE";

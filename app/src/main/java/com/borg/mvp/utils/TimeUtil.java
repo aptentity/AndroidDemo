@@ -31,4 +31,26 @@ public class TimeUtil {
         else
             return new SimpleDateFormat("M月d日 E").format(compareDate);
     }
+
+    /**
+     *  判断一个时间段 比如9:00-12:00
+     * @param beginHour
+     * @param beginMin
+     * @param endHour
+     * @param endMin
+     * @return
+     */
+    public static boolean isIn(int beginHour,int beginMin,int endHour,int endMin){
+        Calendar cal = Calendar.getInstance();// 当前日期
+        int hour = cal.get(Calendar.HOUR_OF_DAY);// 获取小时
+        int minute = cal.get(Calendar.MINUTE);// 获取分钟
+        int minuteOfDay = hour * 60 + minute;// 从0:00分开是到目前为止的分钟数
+        final int start = beginHour * 60 + beginMin;// 起始时间 17:20的分钟数
+        final int end = endHour * 60 +endMin;// 结束时间 19:00的分钟数
+        if (minuteOfDay >= start && minuteOfDay <= end) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
