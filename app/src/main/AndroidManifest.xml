@@ -9,8 +9,9 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.flash" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -18,7 +19,10 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="com.aliyun.permission.TYID_SERVICE" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> <!-- 屏蔽HOME键需要的权限 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
@@ -47,7 +51,10 @@
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.MainActivity">
+        <activity
+            android:name="com.borg.mvp.view.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -228,7 +235,7 @@
         </activity>
         <activity
             android:name=".ble.BleTestActivity"
-            android:label="@string/title_activity_ble_test"></activity>
+            android:label="@string/title_activity_ble_test" />
 
         <service android:name=".devices.connection.bluetooth.ble.service.BLEService">
             <intent-filter>
@@ -237,7 +244,7 @@
         </service>
         <service
             android:name=".service.MessengerService"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
         <activity android:name=".activity.MessengerActivity">
             <intent-filter>
@@ -397,7 +404,7 @@
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.recyclerview.StaggeredGridLayoutActivity"></activity>
+        <activity android:name="com.borg.mvp.view.recyclerview.StaggeredGridLayoutActivity" />
         <activity android:name="com.borg.mvp.view.recyclerview.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -453,7 +460,8 @@
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.BlurActivity"
+        <activity
+            android:name="com.borg.mvp.view.BlurActivity"
             android:theme="@style/Theme.Account.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -461,8 +469,15 @@
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.borg.mvp.view.BlurActivityTest"
-            android:theme="@style/Theme.Account.Dialog"></activity>
+        <activity
+            android:name="com.borg.mvp.view.BlurActivityTest"
+            android:theme="@style/Theme.Account.Dialog" />
+        <activity android:name="com.borg.mvp.view.MulticastActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
