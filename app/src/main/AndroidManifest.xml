@@ -22,6 +22,11 @@
     <uses-permission android:name="com.aliyun.permission.TYID_SERVICE" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> <!-- 屏蔽HOME键需要的权限 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature
         android:name="android.hardware.bluetooth_le"
@@ -475,6 +480,27 @@
         <activity android:name="com.borg.mvp.view.MulticastActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.borg.mvp.view.WifiDirectActivity"
+            android:label="@string/title_activity_wifi_direct"
+            android:theme="@style/NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="aptentity.intent.category.APT_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.borg.mvp.view.WifiAPActivity"
+            android:label="@string/title_activity_wifi_ap"
+            android:theme="@style/NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="aptentity.intent.category.APT_CODE" />
             </intent-filter>
         </activity>

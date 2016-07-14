@@ -4,12 +4,14 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/white_dark</item>
     </style>
+
     <style name="normalAnimation" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
         <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
         <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
         <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
     </style>
+
     <style name="transparentAnimation" parent="@android:style/Animation.Translucent">
         <item name="android:windowEnterAnimation">@anim/slide_right_in</item>
         <item name="android:windowExitAnimation">@anim/slide_right_out</item>
@@ -30,12 +32,14 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/transparentAnimation</item>
     </style>
+
     <style name="test_button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">7dp</item>
         <item name="android:minWidth">200dp</item>
     </style>
+
     <style name="test_button_tip">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -50,10 +54,14 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:paddingLeft">10dip</item>  //图片与左边距的距离
-        <item name="android:paddingRight">10dip</item> //message与右边距的距离
-        <item name="android:textSize">20sp</item>      //message字体的大小
-        <item name="android:textColor">@android:color/white</item>  //message字体的颜色
+        <item name="android:paddingLeft">10dip</item>
+        //图片与左边距的距离
+        <item name="android:paddingRight">10dip</item>
+        //message与右边距的距离
+        <item name="android:textSize">20sp</item>
+        //message字体的大小
+        <item name="android:textColor">@android:color/white</item>
+        //message字体的颜色
     </style>
 
     <style name="customer_progress_dialog" parent="@android:style/Widget.ProgressBar">
@@ -82,4 +90,8 @@
     <style name="CustomWindowTitleBackground">
         <item name="android:background">@drawable/btn_blue</item>
     </style>
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

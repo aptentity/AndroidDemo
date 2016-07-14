@@ -147,4 +147,6 @@
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_view_drag_helper">ViewDragHelperActivity</string>
     <string name="title_activity_view_pager_tset">ViewPagerTsetActivity</string>
+    <string name="title_activity_wifi_direct">WifiDirectActivity</string>
+    <string name="title_activity_wifi_ap">WifiAPActivity</string>
 </resources>
